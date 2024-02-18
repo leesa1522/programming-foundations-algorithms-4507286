@@ -46,10 +46,10 @@ class LinkedList(object):
         return None
 
     def deleteAt(self, idx):
-        if idx > self.count:
+        if idx > self.count-1:
             return
-        if self.head == None:
-            return
+        if idx == 0:
+            self.head = self.head.get_next()
         else:
             tempIdx = 0
             node = self.head
@@ -57,7 +57,7 @@ class LinkedList(object):
                 node = node.get_next()
                 tempIdx += 1
             node.set_next(node.get_next().get_next())
-            self.count -= 1
+        self.count -= 1
 
     def dump_list(self):
         tempnode = self.head
